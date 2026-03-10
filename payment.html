@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+
+		<title>Payment Page || Apex Hospital</title>
+
+		<link
+			rel="stylesheet"
+			href="CSS/payment.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>Payment Page</h1>
+
+				<p>Complete your payment securely below</p>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="payment-form">
+				<div class="slip">
+					<div class="box">
+						<h3>Booking Details</h3>
+
+						<p><b>Patient:</b> <span id="pname"></span></p>
+						<p><b>Doctor:</b> <span id="pdoctor"></span></p>
+						<p><b>Email:</b> <span id="pemail"></span></p>
+						<p><b>Date:</b> <span id="pdate"></span></p>
+						<p><b>Time:</b> <span id="ptime"></span></p>
+					</div>
+
+					<hr />
+
+					<div class="box">
+						<h3>Consultation</h3>
+
+						<p>Consultation Fee: ₹500</p>
+
+						<p>Service charge: ₹100</p>
+
+						<p><b>Base Total:</b> ₹600</p>
+					</div>
+
+					<hr />
+
+					<div class="box">
+						<h3>Admission Details</h3>
+
+						<div class="field">
+							<label for="packageDays">Select Package</label>
+
+							<select id="packageDays">
+								<option value="">Select Days</option>
+
+								<option value="5">5 Days Package</option>
+								<option value="10">10 Days Package</option>
+								<option value="20">20 Days Package</option>
+								<option value="30">30 Days Package</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label for="bedType">Select Bed Type</label>
+
+							<select id="bedType">
+								<option value="">Select Bed</option>
+
+								<option value="standard">Standard</option>
+								<option value="moderate">Moderate</option>
+								<option value="premium">Premium</option>
+							</select>
+						</div>
+
+						<p id="admissionCost"></p>
+						<p id="gstAmount"></p>
+						<p
+							id="discountAmount"
+							class="highlight-green"></p>
+
+						<p>
+							<b>Final Total:</b> ₹<span id="finalTotal"
+								>600</span
+							>
+						</p>
+					</div>
+
+					<hr />
+
+					<div class="box">
+						<div class="qr">
+							<h2>Scan QR Code to Pay</h2>
+
+							<img
+								id="qrCode"
+								width="200" />
+						</div>
+					</div>
+				</div>
+
+				<div class="user">
+					<div class="user-details">
+						<h2>Patient credentials</h2>
+
+						<p>
+							Your login ID:
+							<span class="highlight">tamalrc</span>
+						</p>
+
+						<p>
+							Your password:
+							<span class="highlight">tamalrc44@</span>
+						</p>
+
+						<p class="light-text">
+							use this credentials in patient portal.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const params = new URLSearchParams(window.location.search);
+
+			document.getElementById("pname").innerText = params.get("name");
+			document.getElementById("pemail").innerText = params.get("email");
+			document.getElementById("pdoctor").innerText = params.get("doctor");
+			document.getElementById("pdate").innerText = params.get("date");
+			document.getElementById("ptime").innerText = params.get("time");
+
+			const baseAmount = 600;
+
+			const gstRate = 0.18;
+
+			const bedPrices = {
+				standard: 1000,
+				moderate: 2000,
+				premium: 3000,
+			};
+
+			document
+				.getElementById("packageDays")
+				.addEventListener("change", calculateTotal);
+			document
+				.getElementById("bedType")
+				.addEventListener("change", calculateTotal);
+
+			function calculateTotal() {
+				const days = parseInt(
+					document.getElementById("packageDays").value,
+				);
+
+				const bed = document.getElementById("bedType").value;
+
+				if (!days || !bed) return;
+
+				let admissionCost = days * bedPrices[bed];
+
+				let subtotal = baseAmount + admissionCost;
+
+				let gst = subtotal * gstRate;
+
+				subtotal = subtotal + gst;
+
+				let discount = 0;
+
+				if (days == 30) {
+					discount = subtotal * 0.1;
+
+					subtotal = subtotal - discount;
+				}
+
+				document.getElementById("admissionCost").innerText =
+					"Admission Cost: ₹" + admissionCost;
+
+				document.getElementById("gstAmount").innerText =
+					"GST (18%): ₹" + gst.toFixed(2);
+
+				document.getElementById("discountAmount").innerText =
+					discount > 0 ?
+						"Discount (10%): -₹" + discount.toFixed(2)
+					:	"";
+
+				document.getElementById("finalTotal").innerText =
+					subtotal.toFixed(2);
+
+				updateQR(subtotal.toFixed(2));
+			}
+
+			function updateQR(amount) {
+				const upiLink = `upi://pay?pa=yourupiid@upi&pn=Apex Hospital&am=${amount}&cu=INR`;
+
+				const qr = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+
+				document.getElementById("qrCode").src = qr;
+			}
+
+			updateQR(600);
+		</script>
+	</body>
+</html>

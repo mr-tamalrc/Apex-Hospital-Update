@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>User Dashboard || Apex Hospital</title>
+		<link
+			rel="stylesheet"
+			href="CSS/style.css" />
+		<link
+			rel="stylesheet"
+			href="CSS/user.css" />
+	</head>
+
+	<body>
+		<!-- header start -->
+		<div class="header-container">
+			<div class="header">
+				<h1>Apex Hospital Management System</h1>
+				<p>Providing quality healthcare services since 2020</p>
+			</div>
+			<div class="nav">
+				<p
+					onclick="location.href = 'index.html'"
+					style="cursor: pointer">
+					Home
+				</p>
+				<p
+					onclick="location.href = 'index.html#doctors'"
+					style="cursor: pointer">
+					Doctors
+				</p>
+				<p
+					onclick="location.href = 'index.html#admission-form'"
+					style="cursor: pointer">
+					Appointments
+				</p>
+				<p
+					onclick="location.href = 'index.html#contacts'"
+					style="cursor: pointer">
+					Contact
+				</p>
+			</div>
+		</div>
+		<!-- header end -->
+
+		<br />
+		<div class="user-welcome">
+			<h2>Welcome, Tamal Roy Chowdhury</h2>
+			<button
+				onclick="location.href = 'payment.html'"
+				style="
+					background-color: lightseagreen;
+					color: white;
+					padding: 10px 15px;
+					margin-right: 10px;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+				">
+				Go to Payment
+			</button>
+			<button
+				onclick="location.href = 'login.html'"
+				class="logout-btn">
+				Logout
+			</button>
+		</div>
+		<br />
+
+		<!-- main content start -->
+		<div class="user-container">
+			<div class="user-card">
+				<h3>Medical Reports</h3>
+				<p>Blood Test, X-Ray, MRI reports available here.</p>
+			</div>
+
+			<div class="user-card">
+				<h3>Doctor Prescriptions</h3>
+				<p>View medicines prescribed by doctors.</p>
+			</div>
+
+			<div class="user-card">
+				<h3>Patient History</h3>
+				<p>Previous treatments and diagnosis history.</p>
+			</div>
+
+			<div class="user-card mediclaim-card">
+				<h3>TPA Mediclaim Upload</h3>
+				<div class="mediclaim-form">
+					<div class="field">
+						<label for="mediclaim-type"
+							>Select Mediclaim Type</label
+						>
+						<select
+							id="mediclaim-type"
+							name="mediclaim-type">
+							<option value="corporate">Corporate</option>
+							<option value="personal">Personal</option>
+						</select>
+					</div>
+					<div class="field">
+						<input
+							type="file"
+							name="file-upload"
+							class="file-input" />
+					</div>
+					<button
+						type="submit"
+						class="submit-btn">
+						Submit Mediclaim
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- main content end -->
+
+		<!-- footer start -->
+		<div class="footer">
+			<h3>Contact Us</h3>
+			<p>123 Medical Avenue, Health City</p>
+			<p>Email: contact@apexhospital.com</p>
+			<p>Phone: +91 1234567890</p>
+			<p>&copy; 2026 Apex Hospital. All rights reserved.</p>
+		</div>
+		<!-- footer end -->
+	</body>
+</html>

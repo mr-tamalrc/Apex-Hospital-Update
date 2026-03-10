@@ -1,0 +1,95 @@
+body {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: snow;
+}
+.user-welcome {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 10%;
+	padding: 10px;
+}
+
+.user-welcome h2 {
+	background-color: transparent;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+}
+
+.logout-btn {
+	background-color: #d9534f;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.logout-btn:hover {
+	background-color: #c9302c;
+}
+
+.user-container {
+	margin: 0 10%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.user-card {
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: coral 3px 3px 10px;
+	padding: 20px;
+}
+
+.user-card h3 {
+	margin-top: 0;
+	color: cadetblue;
+}
+
+.mediclaim-form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.mediclaim-form .field {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.mediclaim-form label {
+	font-weight: bold;
+}
+
+.file-input {
+	border: 1px solid #ccc;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+.submit-btn {
+	background-color: lightseagreen;
+	color: black;
+	border: none;
+	border-radius: 10px;
+	padding: 12px 24px;
+	cursor: pointer;
+	box-shadow: coral 2px 2px 5px;
+	font-weight: bold;
+	width: fit-content;
+}
+
+.submit-btn:hover {
+	background-color: seagreen;
+	color: white;
+	box-shadow: coral 4px 4px 10px;
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Login Page || Apex Hospital</title>
+	<link rel="stylesheet" href="CSS/style.css" />
+	<link rel="stylesheet" href="CSS/login.css" />
+</head>
+
+<body>
+	<!-- header start -->
+	<div class="header-container">
+		<div class="header">
+			<h1>Apex Hospital Management System</h1>
+			<p>Providing quality healthcare services since 2020</p>
+		</div>
+		<div class="nav">
+			<p onclick="location.href = 'index.html'" style="cursor: pointer">Home</p>
+			<p onclick="location.href = 'index.html#doctors'" style="cursor: pointer">Doctors</p>
+			<p onclick="location.href = 'index.html#admission-form'" style="cursor: pointer">Appointments</p>
+			<p onclick="location.href = 'index.html#contacts'" style="cursor: pointer">Contact</p>
+		</div>
+	</div>
+	<!-- header end -->
+
+	<div class="login-wrapper">
+		<div class="login-container">
+			<div class="login-header">
+				<div class="hospital-name">PowSome Hospital</div>
+				<h1>Login</h1>
+			</div>
+			<form class="login-form">
+				<div class="field">
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username" required />
+				</div>
+				<div class="field">
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password" required />
+				</div>
+				<button type="submit">
+					Login
+				</button>
+				<p style="text-align: center; margin-top: 15px">
+					Don't have an account?
+					<a href="signup.html" ">
+							Sign up here
+						</a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

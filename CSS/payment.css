@@ -1,0 +1,98 @@
+body {
+	padding: 0;
+	margin: 0;
+	border: none;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: snow;
+}
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-areas:
+		"header"
+		"payment-form";
+	margin: 10px auto;
+	grid-gap: 20px;
+}
+
+.header {
+	text-align: center;
+	background-color: cadetblue;
+	color: white;
+	padding: 20px;
+	margin: 0px 80px;
+	box-shadow: coral 3px 3px 5px;
+	border-radius: 8px;
+}
+
+.payment-form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* align-items: center; */
+	justify-items: center;
+	gap: 15px;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+.slip {
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	width: 500px;
+	padding: 20px 80px;
+	border-radius: 8px;
+	box-shadow: coral 3px 3px 5px;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	margin-bottom: 15px;
+}
+.field label {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.field select {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+.qr {
+	width: 300px;
+	height: 300px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: 0px auto;
+}
+.qr img {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 10px;
+}
+.user {
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	width: 210px;
+	height: 200px;
+	padding: 10px 80px;
+	border-radius: 8px;
+	box-shadow: coral 3px 3px 5px;
+}
+.highlight {
+	color: red;
+	font-weight: bold;
+}
+
+.highlight-green {
+	color: green;
+	font-weight: bold;
+}
+.light-text {
+	font-size: 0.9em;
+	color: #555;
+}
